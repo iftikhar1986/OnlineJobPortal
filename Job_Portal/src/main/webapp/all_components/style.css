@@ -1,1 +1,54 @@
-@charset "UTF-8";
+
+  /* Navbar Link Hover Effects */
+  .navbar-nav .nav-link {
+    position: relative;
+    padding: 12px 15px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #FFD700; /* Gold color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+
+  .navbar-nav .nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #FFD700;
+    transition: width 0.3s;
+    position: relative;
+    top: 20%;
+    left: 0;
+  }
+
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Button Hover Effects */
+  .btn-light:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Lighten background on hover */
+    color: #4B0E0E; /* Change text color on hover */
+    transform: translateY(-3px); /* Lift button effect */
+  }
+
+  .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Darken background on hover */
+    color: #FFD700; /* Change text color on hover */
+    transform: translateY(-3px); /* Lift button effect */
+  }
+
+  /* Bold Navbar Brand */
+  .navbar-brand {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Spacing for brand name */
+    font-family: 'Georgia', serif; /* Stylish font for the brand */
+  }
+
+  /* Icon Styling */
+  .nav-link i {
+    margin-right: 5px; /* Spacing between icon and text */
+  }
