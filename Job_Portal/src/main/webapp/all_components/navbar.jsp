@@ -11,10 +11,10 @@
           <a class="nav-link active" aria-current="page" href="index.jsp"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-briefcase"></i> View Jobs</a>
+          <a class="nav-link" href="view_jobs.jsp"><i class="fas fa-briefcase"></i> View Jobs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-plus-circle"></i> Post a Job</a>
+          <a class="nav-link" href="add_job.jsp"><i class="fas fa-plus-circle"></i> Post a Job</a>
         </li>
       </ul>
 
