@@ -21,14 +21,14 @@
             <i class="fas fa-user-circle fa-2x"></i> <!-- Login Icon -->
             <br>Login
           </h2>
-          <form action="login" method="post">
+<form action="login" method="POST">
             <div class="mb-4">
               <label for="email" class="form-label text-light">Email Address</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
             </div>
             <div class="mb-4">
               <label for="password" class="form-label text-light">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-light">Login</button>
