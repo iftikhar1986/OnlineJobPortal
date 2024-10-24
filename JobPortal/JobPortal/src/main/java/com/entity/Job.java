@@ -1,5 +1,7 @@
 package com.entity;
 
+import java.sql.Timestamp;
+
 public class Job {
 
 
@@ -10,10 +12,10 @@ public class Job {
 	    private String category;
 	    private String status;
 	    private String location;
-	    private String pdate; // Published Date
+	    private Timestamp pdate; // Published Date
 
 	    // Constructor with all fields
-	    public Job(String title, String description, String category, String status, String location, String pdate) {
+	    public Job(String title, String description, String category, String status, String location, Timestamp pdate) {
 	       
 	        this.title = title;
 	        this.description = description;
@@ -77,12 +79,12 @@ public class Job {
 	        this.location = location;
 	    }
 
-	    public String getPdate() {
+	    public Timestamp getPdate() {
 	        return pdate;
 	    }
 
-	    public void setPdate(String pdate) {
-	        this.pdate = pdate;
+	    public void setPdate(Timestamp pdate2) {
+	        this.pdate = pdate2;
 	    }
 
 	    

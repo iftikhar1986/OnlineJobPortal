@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin</title>
+<title>Add Jobs</title>
 <%@include file="all_components/all_css.jsp" %>
 </head>
 <body>
@@ -65,10 +65,10 @@
           <label for="location" class="form-label"><i class="fas fa-map-marker-alt"></i> Location</label>
           <select class="form-select" id="location" name="location" required>
             <option selected disabled>Select Location</option>
-            <option value="New York">Qatar</option>
-            <option value="San Francisco">UAE</option>
-            <option value="London">Saudia Arab</option>
-            <option value="Sydney">Oman</option>
+            <option value="Qatar">Qatar</option>
+            <option value="UAE">UAE</option>
+            <option value="Saudia Arab">Saudia Arab</option>
+            <option value="Oman">Oman</option>
             <!-- Add more locations as needed -->
           </select>
         </div>

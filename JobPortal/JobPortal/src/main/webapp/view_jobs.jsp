@@ -1,10 +1,24 @@
+
+
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.dao.JobDao" %>
+<%@ page import="com.entity.Job" %>
+<%@ page import="com.db.DBConnect" %>
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin</title>
+<title>View Jobs</title>
 <%@include file="all_components/all_css.jsp" %>
 
 </head>
@@ -30,29 +44,43 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Job Row Example -->
+        <% 
+          JobDao dao = new JobDao(DBConnect.getConnection());
+          List<Job> jobList = dao.getAllJobs(); // Assuming getAllJobs() fetches a list of jobs from the database
+          
+          if (jobList != null && !jobList.isEmpty()) {
+            for (Job job : jobList) { 
+        %>
         <tr>
-          <td>Software Engineer</td>
-          <td>New York</td>
-          <td>IT & Software</td>
-          <td><span class="badge bg-success">Active</span></td>
-          <td>Looking for an experienced Software Engineer with Java & Spring Boot skills.</td>
-          <td>October 10, 2023</td> <!-- Sample Publish Date -->
+          <td><%= job.getTitle() %></td>
+          <td><%= job.getLocation() %></td>
+          <td><%= job.getCategory() %></td>
+          <td>
+            <span class="badge <%= job.getStatus().equals("Active") ? "bg-success" : "bg-danger" %>">
+              <%= job.getStatus() %>
+            </span>
+          </td>
+          <td><%= job.getDescription() %></td>
+          <td><fmt:formatDate value="<%= job.getPdate() %>" pattern="MMMM dd, yyyy" /></td> <!-- Format the publish date -->
         </tr>
-        
+        <% 
+            } 
+          } else {
+        %>
         <tr>
-          <td>Marketing Specialist</td>
-          <td>London</td>
-          <td>Marketing</td>
-          <td><span class="badge bg-danger">Closed</span></td>
-          <td>Marketing expert needed for an international project.</td>
-          <td>September 25, 2023</td> <!-- Sample Publish Date -->
+          <td colspan="6" class="text-center">No jobs available at the moment</td>
         </tr>
-
-        <!-- Add more job rows as needed -->
+        <% 
+          }
+        %>
       </tbody>
     </table>
   </div>
+</div>
+
+  
+  
+ 
 </div>
 
 </body>
