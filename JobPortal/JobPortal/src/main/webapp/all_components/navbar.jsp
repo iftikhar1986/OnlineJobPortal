@@ -1,3 +1,12 @@
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page isELIgnored="false" %>
+
+
+
+
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #4B0E0E, #A75B5B); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);">
   <div class="container-fluid">
@@ -10,12 +19,20 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.jsp"><i class="fas fa-home"></i> Home</a>
         </li>
-        <li class="nav-item">
+        
+        <c:if test="${userobj.role eq 'admin' }">
+        
+         <li class="nav-item">
           <a class="nav-link" href="view_jobs.jsp"><i class="fas fa-briefcase"></i> View Jobs</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="add_job.jsp"><i class="fas fa-plus-circle"></i> Post a Job</a>
         </li>
+        
+        
+        </c:if>
+        
+       
       </ul>
 
       <form class="d-flex">
