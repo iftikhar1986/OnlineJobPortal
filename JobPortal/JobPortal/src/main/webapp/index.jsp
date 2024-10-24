@@ -17,9 +17,7 @@
 <body>
 <%@include file="all_components/navbar.jsp" %>
 
-<% Connection conn = DBConnect.getConnection();
-out.println(conn);
-%>
+
 
  <!-- Hero Section -->
   <section class="hero text-center" style="background: linear-gradient(135deg, #4B0E0E, #A75B5B); color: white; padding: 80px 0;">
