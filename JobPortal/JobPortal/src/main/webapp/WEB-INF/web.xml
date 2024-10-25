@@ -41,6 +41,13 @@
     	<servlet-name>DeleteJobServlet</servlet-name>
     	<servlet-class>com.servlet.DeleteJobServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>RegistarServlet</display-name>
+    	<servlet-name>RegistarServlet</servlet-name>
+    	<servlet-class>com.servlet.RegistarServlet</servlet-class>
+    </servlet>
     
     <!-- UpdateJobServlet Mapping -->
     <servlet-mapping>
@@ -50,6 +57,10 @@
     <servlet-mapping>
     	<servlet-name>DeleteJobServlet</servlet-name>
     	<url-pattern>/DeleteJobServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>RegistarServlet</servlet-name>
+    	<url-pattern>/register</url-pattern>
     </servlet-mapping>
 
 </web-app>
