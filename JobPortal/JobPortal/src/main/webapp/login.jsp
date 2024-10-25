@@ -9,6 +9,8 @@
 
 </head>
 <body>
+
+
 <%@include file="all_components/navbar.jsp" %>
 
 <!-- Login Page -->
