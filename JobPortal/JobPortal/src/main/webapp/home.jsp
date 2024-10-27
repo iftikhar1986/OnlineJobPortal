@@ -48,7 +48,7 @@
   <div class="row section-card">
     <div class="col-md-12">
       <div class="card header-card shadow-lg text-center p-3" style="background-color: #4B0E0E;">
-        <h2 class="text-white"><i class="fas fa-user"></i> Welcome, User!</h2>
+        <h2 class="text-white"><i class="fas fa-user"></i> Welcome, ${userobj.name}!</h2>
         <p class="text-white">Explore job opportunities, manage your profile, and track applications. Your dashboard helps you find the best jobs!</p>
       </div>
     </div>
