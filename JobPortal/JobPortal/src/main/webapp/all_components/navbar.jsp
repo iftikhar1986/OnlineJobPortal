@@ -38,30 +38,45 @@
       <form class="d-flex">
         <ul class="navbar-nav mb-2 mb-lg-0">
         
-        <c:if test="${not empty userobj }">
+        <c:if test="${userobj.role eq 'admin' }">
     <li class="nav-item">
     <a class="btn btn-light me-2" style="border-radius: 30px; transition: background-color 0.3s, transform 0.3s;" href="#">
         <i class="fas fa-user-shield"></i> Admin
     </a>
 </li>
 <li class="nav-item">
-    <a class="btn btn-outline-light me-2" style="border-radius: 30px; transition: background-color 0.3s, transform 0.3s;" href="#">
+    <a class="btn btn-outline-light me-2" style="border-radius: 30px; transition: background-color 0.3s, transform 0.3s;" href="logout">
         <i class="fas fa-sign-out-alt"></i> Logout
     </a>
 </li>
-    
+
 </c:if>
 
-
-    <c:if test="${ empty userobj }">
-    <li class="nav-item">
-            <a class="btn btn-light me-2" style="border-radius: 30px; transition: background-color 0.3s, transform 0.3s;" href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-light me-2" style="border-radius: 30px; transition: background-color 0.3s, transform 0.3s;" href="signup.jsp"><i class="fas fa-user-plus"></i> Signup</a>
-          </li>
-</c:if>
         
+    
+          <!-- User Section -->
+          <c:if test="${userobj.role eq 'user' }">
+            <li class="nav-item">
+              <a class="btn btn-light me-2" style="border-radius: 30px;" href="#">
+                <i class="fas fa-user"></i> ${userobj.name}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light me-2" style="border-radius: 30px;" href="logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </li>
+          </c:if>
+
+          <!-- Guest Section -->
+          <c:if test="${empty userobj}">
+            <li class="nav-item">
+              <a class="btn btn-light me-2" style="border-radius: 30px;" href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light me-2" style="border-radius: 30px;" href="signup.jsp"><i class="fas fa-user-plus"></i> Signup</a>
+            </li>
+          </c:if>
           
         </ul>
       </form>

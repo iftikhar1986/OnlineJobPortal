@@ -48,6 +48,13 @@
     	<servlet-name>RegistarServlet</servlet-name>
     	<servlet-class>com.servlet.RegistarServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>LogoutServlet</display-name>
+    	<servlet-name>LogoutServlet</servlet-name>
+    	<servlet-class>com.servlet.LogoutServlet</servlet-class>
+    </servlet>
     
     <!-- UpdateJobServlet Mapping -->
     <servlet-mapping>
@@ -62,6 +69,14 @@
     	<servlet-name>RegistarServlet</servlet-name>
     	<url-pattern>/register</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>LogoutServlet</servlet-name>
+    	<url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    
+    
+  
+   
 
 </web-app>
 

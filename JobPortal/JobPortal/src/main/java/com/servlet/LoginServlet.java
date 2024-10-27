@@ -1,8 +1,9 @@
 package com.servlet;
 
 import java.io.IOException;
+import com.dao.UserDao;
+import com.db.DBConnect;
 import com.entity.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,15 +18,30 @@ public class LoginServlet extends HttpServlet {
             System.out.println("LoginServlet accessed.");
             String email = req.getParameter("email");
             String password = req.getParameter("password");
-            User user = new User();
-            HttpSession session = req.getSession();
 
+            HttpSession session = req.getSession();
+            User user = null;
+
+            // Check for admin credentials
             if ("admin@admin.com".equals(email) && "123456".equals(password)) {
+                user = new User();
                 user.setRole("admin");
+                user.setName("Admin"); // Optional: set name for admin if needed
                 session.setAttribute("userobj", user);
                 resp.sendRedirect("admin.jsp");
             } else {
-                resp.sendRedirect("login.jsp");
+                // Regular user login
+                UserDao userDao = new UserDao(DBConnect.getConnection());
+                user = userDao.login(email, password);
+
+                if (user != null) {
+                    session.setAttribute("userobj", user); // Set the correct user object with details
+                    resp.sendRedirect("home.jsp");
+                } else {
+                    // Login failed
+                    req.setAttribute("errorMessage", "Invalid email or password.");
+                    req.getRequestDispatcher("login.jsp").forward(req, resp);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
